@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.theme
+package com.obi.quizday.ui.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
