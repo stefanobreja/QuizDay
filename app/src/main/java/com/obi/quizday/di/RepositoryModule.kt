@@ -3,7 +3,7 @@ package com.obi.quizday.di
 import com.obi.quizday.ui.data.quizzes.QuizRepositoryImpl
 import com.obi.quizday.ui.data.quizzes.QuizRepositoryMockImpl
 import com.obi.quizday.ui.data.quizzes.QuizService
-import com.obi.quizday.ui.domain.QuizRepository
+import com.obi.quizday.ui.domain.quizzez.QuizRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
-    private const val MOCK_ENABLED = true
+    private const val MOCK_ENABLED = false
 
     @Provides
     @Singleton

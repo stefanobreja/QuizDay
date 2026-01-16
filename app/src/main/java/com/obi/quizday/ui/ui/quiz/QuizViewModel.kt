@@ -3,8 +3,8 @@ package com.obi.quizday.ui.ui.quiz
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.obi.quizday.ui.data.Response
-import com.obi.quizday.ui.domain.Quiz
-import com.obi.quizday.ui.domain.QuizRepository
+import com.obi.quizday.ui.domain.quizzez.model.Quiz
+import com.obi.quizday.ui.domain.quizzez.QuizRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,6 +24,7 @@ class QuizViewModel @jakarta.inject.Inject constructor(
 
     fun getQuizzes() {
         viewModelScope.launch {
+            todayQuiz.update { Response.Loading }
             repository.getTodayQuiz().collect { response ->
                 todayQuiz.update { response }
             }
