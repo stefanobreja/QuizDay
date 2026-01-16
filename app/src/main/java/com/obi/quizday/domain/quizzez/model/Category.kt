@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.domain.quizzez.model
+package com.obi.quizday.domain.quizzez.model
 
 data class Category(
     val id: Int?,

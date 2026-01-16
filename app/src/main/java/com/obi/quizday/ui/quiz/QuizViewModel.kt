@@ -1,18 +1,19 @@
-package com.obi.quizday.ui.ui.quiz
+package com.obi.quizday.ui.quiz
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.obi.quizday.ui.data.Response
-import com.obi.quizday.ui.domain.quizzez.model.Quiz
-import com.obi.quizday.ui.domain.quizzez.QuizRepository
+import com.obi.quizday.data.Response
+import com.obi.quizday.domain.quizzez.QuizRepository
+import com.obi.quizday.domain.quizzez.model.Quiz
 import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 @HiltViewModel
-class QuizViewModel @jakarta.inject.Inject constructor(
+class QuizViewModel @Inject constructor(
     private val repository: QuizRepository
 ) : ViewModel() {
     val todayQuiz: StateFlow<Response<Quiz>>

@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.data.quizzes.model
+package com.obi.quizday.data.quizzes.model
 
 import com.google.gson.annotations.SerializedName
 

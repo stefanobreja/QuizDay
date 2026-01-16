@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.ui.theme
+package com.obi.quizday.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

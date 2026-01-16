@@ -1,9 +1,9 @@
-package com.obi.quizday.ui.data.quizzes.model
+package com.obi.quizday.data.quizzes.model
 
 import com.google.gson.annotations.SerializedName
-import com.obi.quizday.ui.domain.quizzez.model.Answer
-import com.obi.quizday.ui.domain.quizzez.model.Quiz
-import com.obi.quizday.ui.domain.quizzez.model.QuizType
+import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.domain.quizzez.model.Quiz
+import com.obi.quizday.domain.quizzez.model.QuizType
 
 data class QuizDto(
     val category: String?,

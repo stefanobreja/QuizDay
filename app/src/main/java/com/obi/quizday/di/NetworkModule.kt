@@ -1,6 +1,6 @@
 package com.obi.quizday.di
 
-import com.obi.quizday.ui.data.quizzes.QuizService
+import com.obi.quizday.data.quizzes.QuizService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

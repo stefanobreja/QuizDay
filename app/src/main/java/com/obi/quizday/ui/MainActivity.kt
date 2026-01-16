@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.ui
+package com.obi.quizday.ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.obi.quizday.ui.domain.quizzez.model.Answer
-import com.obi.quizday.ui.ui.quiz.QuizzesScreen
-import com.obi.quizday.ui.ui.quiz.QuizScreenClickListener
-import com.obi.quizday.ui.ui.quiz.QuizViewModel
-import com.obi.quizday.ui.ui.theme.QuizDayTheme
+import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.ui.quiz.QuizScreenClickListener
+import com.obi.quizday.ui.quiz.QuizViewModel
+import com.obi.quizday.ui.quiz.QuizzesScreen
+import com.obi.quizday.ui.theme.QuizDayTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

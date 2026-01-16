@@ -1,12 +1,12 @@
-package com.obi.quizday.ui.data.quizzes
+package com.obi.quizday.data.quizzes
 
-import com.obi.quizday.ui.data.Response
-import com.obi.quizday.ui.data.Response.Success
-import com.obi.quizday.ui.domain.quizzez.model.Answer
-import com.obi.quizday.ui.domain.quizzez.model.Quiz
-import com.obi.quizday.ui.domain.quizzez.QuizRepository
-import com.obi.quizday.ui.domain.quizzez.model.Category
-import com.obi.quizday.ui.domain.quizzez.model.QuizType
+import com.obi.quizday.data.Response
+import com.obi.quizday.data.Response.Success
+import com.obi.quizday.domain.quizzez.QuizRepository
+import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.domain.quizzez.model.Category
+import com.obi.quizday.domain.quizzez.model.Quiz
+import com.obi.quizday.domain.quizzez.model.QuizType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

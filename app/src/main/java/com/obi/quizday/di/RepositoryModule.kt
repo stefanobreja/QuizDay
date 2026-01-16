@@ -1,9 +1,9 @@
 package com.obi.quizday.di
 
-import com.obi.quizday.ui.data.quizzes.QuizRepositoryImpl
-import com.obi.quizday.ui.data.quizzes.QuizRepositoryMockImpl
-import com.obi.quizday.ui.data.quizzes.QuizService
-import com.obi.quizday.ui.domain.quizzez.QuizRepository
+import com.obi.quizday.data.quizzes.QuizRepositoryImpl
+import com.obi.quizday.data.quizzes.QuizRepositoryMockImpl
+import com.obi.quizday.data.quizzes.QuizService
+import com.obi.quizday.domain.quizzez.QuizRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

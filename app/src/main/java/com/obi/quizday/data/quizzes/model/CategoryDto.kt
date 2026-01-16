@@ -1,6 +1,6 @@
-package com.obi.quizday.ui.data.quizzes.model
+package com.obi.quizday.data.quizzes.model
 
-import com.obi.quizday.ui.domain.quizzez.model.Category
+import com.obi.quizday.domain.quizzez.model.Category
 
 data class CategoryDto(
     val id: Int?,

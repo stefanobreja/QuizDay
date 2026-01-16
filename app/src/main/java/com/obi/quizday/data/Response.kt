@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.data
+package com.obi.quizday.data
 
 sealed class Response<out T> {
     data object Limbo : Response<Nothing>()

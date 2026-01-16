@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.ui.quiz
+package com.obi.quizday.ui.quiz
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,9 +33,9 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.obi.quizday.ui.data.quizzes.QuizRepositoryMockImpl
-import com.obi.quizday.ui.domain.quizzez.model.Answer
-import com.obi.quizday.ui.domain.quizzez.model.Quiz
+import com.obi.quizday.data.quizzes.QuizRepositoryMockImpl
+import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.domain.quizzez.model.Quiz
 
 @Composable
 fun QuizView(

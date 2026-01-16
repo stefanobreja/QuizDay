@@ -1,4 +1,4 @@
-package com.obi.quizday.ui.ui.quiz
+package com.obi.quizday.ui.quiz
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.obi.quizday.ui.data.Response
-import com.obi.quizday.ui.domain.quizzez.model.Answer
-import com.obi.quizday.ui.domain.quizzez.model.Quiz
+import com.obi.quizday.data.Response
+import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.domain.quizzez.model.Quiz
 
 
 interface QuizScreenClickListener {
