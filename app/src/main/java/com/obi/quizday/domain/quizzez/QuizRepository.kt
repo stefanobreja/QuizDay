@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface QuizRepository {
     fun getTodayQuiz(): Flow<Response<Quiz>>
-
+    fun getQuizzes(categoryId: Int): Flow<Response<List<Quiz>>>
     fun getCategories(): Flow<Response<List<Category>>>
 }

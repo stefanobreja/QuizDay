@@ -1,5 +1,7 @@
 package com.obi.quizday.ui.theme
 
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 val primaryLight = Color(0xFF005BB0)
@@ -217,3 +219,57 @@ val surfaceContainerLowDarkHighContrast = Color(0xFF1C2026)
 val surfaceContainerDarkHighContrast = Color(0xFF2D3038)
 val surfaceContainerHighDarkHighContrast = Color(0xFF383B43)
 val surfaceContainerHighestDarkHighContrast = Color(0xFF43474E)
+
+val LightPastelBlue = Color(0xFFd6e6ff)
+val LightPastelGreen = Color(0xFFd7f9f8)
+val LightPastelYellow = Color(0xFFffffea)
+val LightPastelRed = Color(0xFFFFADAD)
+val LightPastelPink = Color(0xFFfbe0e0)
+val LightPastelOrange = Color(0xFFfff0d4)
+val LightPastelPurple = Color(0xFFE5D4EF)
+val LightPastelDarkPurple = Color(0xFFCAC7FF)
+
+val DarkPastelBlue = Color(0xFF8DB7D2)
+val DarkPastelGreen = Color(0xFF78938A)
+val DarkPastelYellow = Color(0xFFF1DDBF)
+val DarkPastelRed = Color(0xFFc45161)
+val DarkPastelPink = Color(0xFFE094A0)
+val DarkPastelOrange = Color(0xFFFFD6A5)
+val DarkPastePurple = Color(0xFF5E62A9)
+val DarkPasteDarkPurple = Color(0xFF434279)
+
+@Immutable
+data class CustomColorsPalette(
+    val pastelBlue: Color = Color.Unspecified,
+    val pastelGreen: Color = Color.Unspecified,
+    val pastelYellow: Color = Color.Unspecified,
+    val pastelRed: Color = Color.Unspecified,
+    val pastelPink: Color = Color.Unspecified,
+    val pastelOrange: Color = Color.Unspecified,
+    val pastelPurple: Color = Color.Unspecified,
+    val darkPurple: Color = Color.Unspecified
+)
+
+val LightCustomColorsPalette = CustomColorsPalette(
+    pastelBlue = LightPastelBlue,
+    pastelGreen = LightPastelGreen,
+    pastelYellow = LightPastelYellow,
+    pastelRed = LightPastelRed,
+    pastelOrange = LightPastelOrange,
+    pastelPink = LightPastelPink,
+    pastelPurple = LightPastelPurple,
+    darkPurple = LightPastelDarkPurple
+)
+
+val DarkCustomColorsPalette = CustomColorsPalette(
+    pastelBlue = DarkPastelBlue,
+    pastelGreen = DarkPastelGreen,
+    pastelYellow = DarkPastelYellow,
+    pastelRed = DarkPastelRed,
+    pastelOrange = DarkPastelOrange,
+    pastelPink = DarkPastelPink,
+    pastelPurple = DarkPastePurple,
+    darkPurple = DarkPasteDarkPurple
+)
+
+val LocalCustomColorsPalette = staticCompositionLocalOf { CustomColorsPalette() }

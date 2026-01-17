@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -43,7 +44,8 @@ fun QuizView(
     quiz: Quiz,
     questionNumber: Int,
     totalQuestionsNumber: Int,
-    listener: QuizScreenClickListener
+    timeLeft: Int,
+    onAnswerSelected: (Answer) -> Unit = {}
 ) {
     var selectedAnswer: Answer? by remember { mutableStateOf(null) }
 
@@ -55,28 +57,38 @@ fun QuizView(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
 
-        Text(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 24.dp),
-            text = buildAnnotatedString {
-                val numberStyle = SpanStyle(
-                    fontWeight = FontWeight.Black,
-                    fontSize = 20.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                val outOfStyle = SpanStyle(
-                    fontSize = 17.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                withStyle(numberStyle) {
-                    append("Question $questionNumber/")
+                .padding(top = 24.dp)
+        ) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = buildAnnotatedString {
+                    val numberStyle = SpanStyle(
+                        fontWeight = FontWeight.Black,
+                        fontSize = 20.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    val outOfStyle = SpanStyle(
+                        fontSize = 17.sp,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    withStyle(numberStyle) {
+                        append("Question $questionNumber/")
+                    }
+                    withStyle(outOfStyle) {
+                        append(totalQuestionsNumber.toString())
+                    }
                 }
-                withStyle(outOfStyle) {
-                    append(totalQuestionsNumber.toString())
-                }
-            }
-        )
+            )
+            Text(
+                text = timeLeft.toString(),
+                fontWeight = FontWeight.Black,
+                fontSize = 20.sp,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -133,15 +145,17 @@ fun QuizView(
                 }
             }
             Button(
-                modifier = Modifier.padding(top = 24.dp),
+                modifier = Modifier
+                    .padding(top = 24.dp)
+                    .fillMaxWidth(0.5f),
                 shape = RoundedCornerShape(20.dp),
                 enabled = selectedAnswer != null,
                 onClick = {
-                    selectedAnswer?.let { listener.onAnswerSelected(it) }
+                    selectedAnswer?.let { onAnswerSelected(it) }
                 }
             ) {
                 Text(
-                    modifier=Modifier.padding(12.dp),
+                    modifier = Modifier.padding(12.dp),
                     text = "Next",
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp
@@ -157,9 +171,10 @@ fun QuizView(
 @Composable
 private fun QuizPreview() {
     QuizView(
-        quiz = QuizRepositoryMockImpl.quiz,
-        listener = QuizScreenClickListener.mocked,
+        quiz = QuizRepositoryMockImpl.quizList.first(),
         questionNumber = 3,
-        totalQuestionsNumber = 10
+        totalQuestionsNumber = 10,
+        timeLeft = 24,
+        onAnswerSelected = {}
     )
 }

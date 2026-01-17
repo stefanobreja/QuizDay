@@ -2,6 +2,7 @@ package com.obi.quizday.data.quizzes.model
 
 import com.google.gson.annotations.SerializedName
 import com.obi.quizday.domain.quizzez.model.Answer
+import com.obi.quizday.domain.quizzez.model.Difficulty
 import com.obi.quizday.domain.quizzez.model.Quiz
 import com.obi.quizday.domain.quizzez.model.QuizType
 
@@ -22,15 +23,19 @@ fun QuizDto.toDomain(): Quiz {
 
         QuizType.BOOLEAN -> {
             listOf(
-                Answer(QuizType.BOOLEAN_YES, correctAnswer == QuizType.BOOLEAN_YES),
-                Answer(QuizType.BOOLEAN_NO, correctAnswer == QuizType.BOOLEAN_NO)
+                Answer(QuizType.BOOLEAN_YES, true),
+                Answer(QuizType.BOOLEAN_NO, false)
             )
         }
 
         QuizType.UNKNOWN, null -> throw IllegalStateException("Type should not be unknown")
     }
-
-
+    val difficulty = when(difficulty){
+        "easy" -> Difficulty.EASY
+        "medium" -> Difficulty.MEDIUM
+        "hard" -> Difficulty.HARD
+        else -> null
+    }
     return Quiz(
         category = category,
         difficulty = difficulty,

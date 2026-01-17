@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
     kotlin("kapt")
 }
 
@@ -61,6 +62,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.7.0")
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging.interceptor)

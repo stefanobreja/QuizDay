@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
 
 private val lightScheme = lightColorScheme(
@@ -242,7 +243,7 @@ private val highContrastDarkColorScheme = darkColorScheme(
 fun QuizDayTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -251,13 +252,21 @@ fun QuizDayTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> lightScheme
-        else -> darkScheme
+        darkTheme -> darkScheme
+        else -> lightScheme
+    }
+    val customColorsPalette = when {
+        darkTheme -> DarkCustomColorsPalette
+        else -> LightCustomColorsPalette
+    }
+    CompositionLocalProvider(
+        LocalCustomColorsPalette provides customColorsPalette
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            content = content
+        )
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
 }
