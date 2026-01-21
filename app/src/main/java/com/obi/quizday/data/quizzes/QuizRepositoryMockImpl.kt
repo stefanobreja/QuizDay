@@ -272,10 +272,13 @@ object QuizRepositoryMockImpl : QuizRepository {
 
     override fun getTodayQuiz(): Flow<Response<Quiz>> =
         flowOf(Success(quizList.random()))
+//        flowOf(Response.Error(Exception("Something went wrong")))
 
     override fun getQuizzes(categoryId: Int): Flow<Response<List<Quiz>>> =
         flowOf(Success(quizList))
+//        flowOf(Response.Error(Exception("Something went wrong")))
 
     override fun getCategories(): Flow<Response<List<Category>>> =
         flowOf(Success(categories))
+//        flowOf(Response.Error(Exception("Something went wrong")))
 }

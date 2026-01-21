@@ -1,5 +1,6 @@
 package com.obi.quizday.ui.categories
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -8,12 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.obi.quizday.data.Response
 import com.obi.quizday.domain.quizzez.model.Category
+import com.obi.quizday.ui.common.view.GenericErrorView
 import com.obi.quizday.ui.navigation.Route
 
 @Composable
@@ -22,6 +25,7 @@ fun CategoriesScreen(
     viewModel: CategoriesViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
+    val context = LocalContext.current
     val categories by viewModel.categories.collectAsStateWithLifecycle()
     when (categories) {
         is Response.Success<List<Category>> -> (categories as Response.Success<List<Category>>).data?.let {
@@ -30,8 +34,8 @@ fun CategoriesScreen(
                 categories = it,
                 onCategorySelected = { id ->
                     if (id == null) {
-                        throw IllegalStateException("Category id cannot be null")
-                        // TODO: handle error
+                        Toast.makeText(context, "We encountered an issue, please try again later", Toast.LENGTH_LONG)
+                            .show()
                     } else {
                         navController.navigate(Route.Quizzes(id))
                     }
@@ -46,7 +50,7 @@ fun CategoriesScreen(
         }
 
         is Response.Error -> {
-            // TODO: implement error
+            GenericErrorView(modifier)
         }
 
 

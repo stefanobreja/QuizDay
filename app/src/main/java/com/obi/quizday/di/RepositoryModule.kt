@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
-    private const val MOCK_ENABLED = false
+    private const val MOCK_ENABLED = true
 
     @Provides
     @Singleton

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.obi.quizday.data.Response
 import com.obi.quizday.domain.quizzez.model.Quiz
+import com.obi.quizday.ui.common.view.GenericErrorView
 
 
 @Composable
@@ -44,7 +45,7 @@ fun QuizzesScreen(
     }
     when (quizzesResponse) {
         is Response.Error -> {
-            // TODO: implement error
+            GenericErrorView(modifier)
         }
 
         Response.Loading -> {
@@ -64,11 +65,11 @@ fun QuizzesScreen(
                 }
                 QuizView(
                     modifier = modifier,
-                    quiz = quizzes[currentQuizNo-1],
+                    quiz = quizzes[currentQuizNo - 1],
                     questionNumber = currentQuizNo,
                     totalQuestionsNumber = quizzes.size,
                     onAnswerSelected = { answer ->
-                        viewModel.onQuizAnswered(quizzes[currentQuizNo-1], answer)
+                        viewModel.onQuizAnswered(quizzes[currentQuizNo - 1], answer)
                     },
                     timeLeft = timeLeft,
                 )
